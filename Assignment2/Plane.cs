@@ -37,6 +37,9 @@ namespace Assignment2
         #endregion
         
         #region Methods
+        /// <summary>
+        /// Creates the plane
+        /// </summary>
         private void CreatePlane()
         {
             const float planeWidth = 1f;
@@ -54,7 +57,10 @@ namespace Assignment2
                0,1,3,2
             };
         }
-
+        
+        /// <summary>
+        /// Draws the plane
+        /// </summary>
         public void Draw()
         {
             _effect.World = Matrix.Identity;

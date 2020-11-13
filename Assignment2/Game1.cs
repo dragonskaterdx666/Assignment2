@@ -43,6 +43,7 @@ namespace Assignment2
                 Exit();
 
             _prism.CreatePrism(3, 1f, 40);
+            _prism.Update(gameTime);
 
             base.Update(gameTime);
         }
