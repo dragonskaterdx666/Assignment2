@@ -24,7 +24,9 @@ namespace Assignment2
         private VertexPositionNormalTexture [] _sideVertices;
 
         private Vector3 _direction = new Vector3(0f, 0f, 0f);
-        private int _height;
+        private float _height;
+        private float _radius;
+        private float _rotation = 0f;
         private int _sides;
         private short [] _indices;
         private short [] _sideIndices;
@@ -36,19 +38,21 @@ namespace Assignment2
         /// </summary>
         /// <param name="height"></param>
         /// <param name="sides"> can only be set from 3-x sides</param>
-        public Prism(GraphicsDevice device, Texture2D topTex, Texture2D sideTex)
+        public Prism(GraphicsDevice device, Texture2D topTex, Texture2D sideTex, float height, float radius, int sides)
         {
             float aspectRatio = (float)device.Viewport.Width / device.Viewport.Height;
 
             _device = device;
             _sideTex = sideTex;
             _topTex = topTex;
+            _radius = radius;
+            _height = height;
+            _sides = sides;
             
             _effect = new BasicEffect(device);
-            _effect.View = Matrix.CreateLookAt(new Vector3(4f, 4f, 4f), Vector3.Zero, Vector3.Up);
+            _effect.View = Matrix.CreateLookAt(new Vector3(1.0f, 2.0f, 2.0f), Vector3.Zero, Vector3.Up);
             _effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), aspectRatio, 0.01f, 1000f);
             _effect.LightingEnabled = true;
-            _effect.VertexColorEnabled = true;
             _effect.TextureEnabled = true;
             
             //LIGHTING
@@ -59,6 +63,8 @@ namespace Assignment2
             _effect.DirectionalLight0.Direction = new Vector3(-1f, -1f, -1f);
             _effect.DirectionalLight0.Direction.Normalize();
             _effect.CurrentTechnique.Passes[0].Apply();
+            
+            CreatePrism(height, radius, sides);
         }
         #endregion
 
@@ -66,12 +72,8 @@ namespace Assignment2
         /// <summary>
         /// Creates the prism
         /// </summary>
-        public void CreatePrism(int height, float radius, int sides)
+        public void CreatePrism(float height, float radius, int sides)
         {
-            //variables
-            _sides = sides;
-            _height = height;
-
             //sets the size of the vertices array accordingly
             _baseVertices = new VertexPositionNormalTexture [_sides + 1];
             _topVertices = new VertexPositionNormalTexture [_sides + 1];
@@ -81,27 +83,27 @@ namespace Assignment2
             for (int i = 0; i < _sides; i++)
             {
                 float angle = (float)i * (float)(2 * Math.PI) / (float)_sides;
-                float x = (float)Math.Cos(angle);
+                float x = (float)Math.Cos(angle) * radius;
                 float y = 0f;
-                float z = (float)Math.Sin(angle);
+                float z = (float)Math.Sin(angle) * radius;
                 
                 /* BASES */
                 //bottom
                 _baseVertices [i] = new VertexPositionNormalTexture(
-                    new Vector3(x, y, z), Vector3.Down, new Vector2(x,z));
+                    new Vector3(x, y, z), Vector3.Down, new Vector2((x/radius + 1) * 0.5f,(z/radius + 1) * 0.5f));
                 
                 //top
                 _topVertices [i] = new VertexPositionNormalTexture(
-                    new Vector3(x, _height, -z),Vector3.Up, new Vector2(x,z));
+                    new Vector3(x, _height, -z),Vector3.Up, new Vector2((x/radius + 1) * 0.5f,(z/radius + 1) * 0.5f));
                 
                 
                 /* SIDES */
                 //does top and bottom vertices at a time
                 _sideVertices [i * 2] = new VertexPositionNormalTexture(
-                    new Vector3(x, _height, z), new Vector3(x, y, z), new Vector2((x/radius + 1) * 0.5f,(z/radius + 1) * 0.5f));
+                    new Vector3(x, _height, z), new Vector3(x, y, z), new Vector2(1f - (float)i/_sides,0));
                 
                 _sideVertices [i * 2 + 1] = new VertexPositionNormalTexture(
-                    new Vector3(x, y, z),new Vector3(x, y, z), new Vector2((x/radius + 1) * 0.5f,(z/radius + 1) * 0.5f));
+                    new Vector3(x, y, z),new Vector3(x, y, z), new Vector2(1f - (float)i/_sides,1f));
                 
                 //so on the last side it makes the last 2 vertices on the same position as the beginning (to overlap)
                 if (i == _sides - 1)
@@ -112,13 +114,15 @@ namespace Assignment2
                     
                     //going to the last 2 vertex positions 
                     _sideVertices[_sides * 2] = new VertexPositionNormalTexture(
-                        new Vector3(x, _height, z), new Vector3(x, y, z), new Vector2(1 - 1/_sides * i,0f));
+                        new Vector3(x, _height, z), new Vector3(x, y, z), new Vector2(1f - (float)i/_sides,0f));
                     
                     _sideVertices[_sides * 2 + 1] = new VertexPositionNormalTexture(
-                        new Vector3(x, y, z), new Vector3(x, y, z), new Vector2(1 - 1/_sides * i,1f));
+                        new Vector3(x, y, z), new Vector3(x, y, z), new Vector2(1f - (float)i/_sides,1f));
                 }
             }
-
+            
+            _topVertices[_sides] = new VertexPositionNormalTexture(new Vector3(0f,_height, 0f), Vector3.Up, new Vector2(0.5f, 0.5f)); 
+            
             int indexCount = _sides * 2 + 2;
 
             _indices = new short [indexCount];
@@ -146,10 +150,10 @@ namespace Assignment2
             _sideVerticesBuffer = new VertexBuffer(_device, typeof(VertexPositionNormalTexture), _sideVertices.Length, BufferUsage.None);
             _sideVerticesBuffer.SetData<VertexPositionNormalTexture>(_sideVertices);
             
-            _sideIndexBuffer = new IndexBuffer(_device, typeof(short),indexCount , BufferUsage.None);
+            _sideIndexBuffer = new IndexBuffer(_device, typeof(short),_sideIndices.Length , BufferUsage.None);
             _sideIndexBuffer.SetData<short>(_sideIndices);
 
-            _iBuffer = new IndexBuffer(_device, typeof(short), indexCount, BufferUsage.None);
+            _iBuffer = new IndexBuffer(_device, typeof(short), _indices.Length, BufferUsage.None);
             _iBuffer.SetData<short>(_indices);
         }
         
@@ -159,7 +163,6 @@ namespace Assignment2
         /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
-            float rotation = 0f;
             KeyboardState ks = Keyboard.GetState();
 
            if (ks.IsKeyDown(Keys.Up))
@@ -168,18 +171,18 @@ namespace Assignment2
            }
            else if (ks.IsKeyDown(Keys.Down))
            {
-               _direction += _effect.World.Backward;
+               _direction += 0.05f * _effect.World.Backward;
            }
            else if (ks.IsKeyDown(Keys.Left))
            {
-               rotation += 0.05f;
+               _rotation += 0.05f;
            }
            else if (ks.IsKeyDown(Keys.Right))
            {
-               rotation += 0.05f;
+               _rotation -= 0.05f;
            }
            
-           _effect.World = Matrix.CreateFromYawPitchRoll(rotation, 0.0f, 0.0f) * Matrix.CreateTranslation(_direction);
+           _effect.World = Matrix.CreateFromYawPitchRoll(_rotation, 0.0f, 0.0f) * Matrix.CreateTranslation(_direction);
         }
         
         /// <summary>
@@ -187,6 +190,8 @@ namespace Assignment2
         /// </summary>
         public void Draw()
         {
+            //_effect.World = Matrix.Identity;
+            
             _effect.Texture = _sideTex;
             _effect.CurrentTechnique.Passes [0].Apply();
         
@@ -207,8 +212,7 @@ namespace Assignment2
                 0,_indices.Length - 2);
             
             _device.SetVertexBuffer(_topVerticesBuffer);
-            _device.Indices = _iBuffer;
-            
+
             /*renders Top base*/
             _device.DrawIndexedPrimitives(PrimitiveType.TriangleStrip,0,
                 0,_indices.Length - 2);

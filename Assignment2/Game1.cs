@@ -25,7 +25,7 @@ namespace Assignment2
         {
             _plane = new Plane(GraphicsDevice, Content.Load<Texture2D>("plane"));
             _prism = new Prism(GraphicsDevice, Content.Load<Texture2D>("top"), 
-                                               Content.Load<Texture2D>("side"));
+                                               Content.Load<Texture2D>("side"), 0.6f, 0.2f, 40);
             
             base.Initialize();
         }
@@ -41,8 +41,7 @@ namespace Assignment2
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            _prism.CreatePrism(3, 1f, 40);
+            
             _prism.Update(gameTime);
 
             base.Update(gameTime);
