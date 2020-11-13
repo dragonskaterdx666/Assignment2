@@ -6,18 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="355f71f7-f25c-4abf-a92a-64f9b3883b29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/Game1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment2/Plane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/Plane.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment2/Prism.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/Prism.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment2/bin/Debug/netcoreapp3.1/Assignment2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/bin/Debug/netcoreapp3.1/Assignment2.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment2/bin/Debug/netcoreapp3.1/Assignment2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/bin/Debug/netcoreapp3.1/Assignment2.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/Assignment2.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Assignment2.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/Assignment2.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Assignment2.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/Debug/netcoreapp3.1/Assignment2.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605279956505</updated>
       <workItem from="1605279974288" duration="6969000" />
-      <workItem from="1605296411022" duration="8195000" />
+      <workItem from="1605296411022" duration="8815000" />
     </task>
     <servers />
   </component>
@@ -103,22 +97,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1010" height="405" key="DebuggerActiveHint/0.0.1536.864@0.0.1536.864" timestamp="1605302817596" />
-    <state width="1495" height="60" key="GridCell.Tab.0.bottom" timestamp="1605304496734">
+    <state width="1495" height="60" key="GridCell.Tab.0.bottom" timestamp="1605305097501">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1495" height="60" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605304496734" />
-    <state width="1495" height="60" key="GridCell.Tab.0.center" timestamp="1605304496734">
+    <state width="1495" height="60" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605305097501" />
+    <state width="1495" height="60" key="GridCell.Tab.0.center" timestamp="1605305097501">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1495" height="60" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605304496734" />
-    <state width="1495" height="60" key="GridCell.Tab.0.left" timestamp="1605304496734">
+    <state width="1495" height="60" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605305097501" />
+    <state width="1495" height="60" key="GridCell.Tab.0.left" timestamp="1605305097501">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1495" height="60" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605304496734" />
-    <state width="1495" height="60" key="GridCell.Tab.0.right" timestamp="1605304496734">
+    <state width="1495" height="60" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605305097501" />
+    <state width="1495" height="60" key="GridCell.Tab.0.right" timestamp="1605305097501">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1495" height="60" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605304496734" />
+    <state width="1495" height="60" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605305097501" />
     <state width="1495" height="193" key="GridCell.Tab.1.bottom" timestamp="1605303663762">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

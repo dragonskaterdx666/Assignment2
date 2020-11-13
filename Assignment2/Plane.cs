@@ -25,7 +25,7 @@ namespace Assignment2
             _texture = texture;
             
             _effect = new BasicEffect(device);
-            _effect.View = Matrix.CreateLookAt(new Vector3(1.0f, 2.0f, 2.0f), Vector3.Zero, Vector3.Up);
+            _effect.View = Matrix.CreateLookAt(new Vector3(0.0f, 2.0f, 2.0f), Vector3.Zero, Vector3.Up);
             _effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 0.1f, 1000f);
             _effect.LightingEnabled = false;
             _effect.VertexColorEnabled = false;
@@ -66,7 +66,7 @@ namespace Assignment2
             _effect.World = Matrix.Identity;
             _effect.CurrentTechnique.Passes[0].Apply();
 
-            _device.DrawUserIndexedPrimitives<VertexPositionTexture>(PrimitiveType.TriangleStrip, _vertices, 0, _vertices.Length, _indices, 0,2);
+            _device.DrawUserIndexedPrimitives(PrimitiveType.TriangleStrip, _vertices, 0, _vertices.Length, _indices, 0,2);
         }    
         #endregion
     }

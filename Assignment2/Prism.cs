@@ -50,7 +50,7 @@ namespace Assignment2
             _sides = sides;
             
             _effect = new BasicEffect(device);
-            _effect.View = Matrix.CreateLookAt(new Vector3(1.0f, 2.0f, 2.0f), Vector3.Zero, Vector3.Up);
+            _effect.View = Matrix.CreateLookAt(new Vector3(0.0f, 2.0f, 2.0f), Vector3.Zero, Vector3.Up);
             _effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45f), aspectRatio, 0.01f, 1000f);
             _effect.LightingEnabled = true;
             _effect.TextureEnabled = true;
@@ -59,7 +59,7 @@ namespace Assignment2
             _effect.AmbientLightColor = new Vector3(0.2f, 0.2f, 0.2f);
             _effect.DiffuseColor = new Vector3(0.6f, 0.6f, 0.6f);
             _effect.DirectionalLight0.Enabled = true;
-            _effect.DirectionalLight0.DiffuseColor = new Vector3(1.0f, 1.0f, 1.0f);
+            _effect.DirectionalLight0.DiffuseColor = new Vector3(0.2f, 0.3f, 1.0f);
             _effect.DirectionalLight0.Direction = new Vector3(-1f, -1f, -1f);
             _effect.DirectionalLight0.Direction.Normalize();
             _effect.CurrentTechnique.Passes[0].Apply();
