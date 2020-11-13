@@ -122,7 +122,7 @@ namespace Assignment2
             _sideVerticesBuffer.SetData<VertexPositionNormalTexture>(_sideVertices);
             
             _sideIndexBuffer = new IndexBuffer(_device, typeof(short), _sides + 1, BufferUsage.None);
-            _sideIndexBuffer.SetData<short>();
+            _sideIndexBuffer.SetData<short>(_indices);
 
             _iBuffer = new IndexBuffer(_device, typeof(short), indexCount, BufferUsage.None);
             _iBuffer.SetData<short>(_indices);

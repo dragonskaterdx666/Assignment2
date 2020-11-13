@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Projects/Assignment2/Assignment2/Content/side.jpg</SourceFile>
+  <SourceFile>D:/Projects/Git/Assignment2/Assignment2/Content/side.jpg</SourceFile>
   <SourceTime>2020-11-06T18:23:34.4022511+00:00</SourceTime>
-  <DestFile>D:/Projects/Assignment2/Assignment2/Content/bin/Windows/Content/side.xnb</DestFile>
-  <DestTime>2020-11-10T11:26:10.5494468+00:00</DestTime>
+  <DestFile>D:/Projects/Git/Assignment2/Assignment2/Content/bin/Windows/Content/side.xnb</DestFile>
+  <DestTime>2020-11-13T15:06:08.9160032+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -7326,11 +7326,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Assignment2\\Assignment2\\Assignment2.csproj",
+      "projectUniqueName": "D:\\Projects\\Git\\Assignment2\\Assignment2\\Assignment2.csproj",
       "projectName": "Assignment2",
-      "projectPath": "D:\\Projects\\Assignment2\\Assignment2\\Assignment2.csproj",
+      "projectPath": "D:\\Projects\\Git\\Assignment2\\Assignment2\\Assignment2.csproj",
       "packagesPath": "C:\\Users\\susan\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Assignment2\\Assignment2\\obj\\",
+      "outputPath": "D:\\Projects\\Git\\Assignment2\\Assignment2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet",

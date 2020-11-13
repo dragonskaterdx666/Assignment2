@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\Projects\\Assignment2\\Assignment2\\Assignment2.csproj",
+    "projectUniqueName": "D:\\Projects\\Git\\Assignment2\\Assignment2\\Assignment2.csproj",
     "projectName": "Assignment2",
-    "projectPath": "D:\\Projects\\Assignment2\\Assignment2\\Assignment2.csproj",
-    "outputPath": "D:\\Projects\\Assignment2\\Assignment2\\obj\\",
+    "projectPath": "D:\\Projects\\Git\\Assignment2\\Assignment2\\Assignment2.csproj",
+    "outputPath": "D:\\Projects\\Git\\Assignment2\\Assignment2\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Microsoft\\Xamarin\\NuGet",
