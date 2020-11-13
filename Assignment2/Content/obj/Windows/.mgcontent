@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Projects/Assignment2/Assignment2/Content/plane.jpg</File>
-    <File>D:/Projects/Assignment2/Assignment2/Content/side.jpg</File>
-    <File>D:/Projects/Assignment2/Assignment2/Content/top.png</File>
+    <File>D:/Projects/Git/Assignment2/Assignment2/Content/plane.jpg</File>
+    <File>D:/Projects/Git/Assignment2/Assignment2/Content/side.jpg</File>
+    <File>D:/Projects/Git/Assignment2/Assignment2/Content/top.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

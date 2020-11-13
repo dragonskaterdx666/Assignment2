@@ -24,8 +24,11 @@ namespace Assignment2
         private VertexPositionNormalTexture [] _sideVertices;
 
         private Vector3 _direction = new Vector3(0f, 0f, 0f);
+        private Vector3 _position = Vector3.Zero;
+        private Vector3 _oldPosition;
         private float _height;
         private float _radius;
+        private float _speed = 0.05f;
         private float _rotation = 0f;
         private int _sides;
         private short [] _indices;
@@ -72,7 +75,7 @@ namespace Assignment2
         /// <summary>
         /// Creates the prism
         /// </summary>
-        public void CreatePrism(float height, float radius, int sides)
+        private void CreatePrism(float height, float radius, int sides)
         {
             //sets the size of the vertices array accordingly
             _baseVertices = new VertexPositionNormalTexture [_sides + 1];
@@ -158,31 +161,42 @@ namespace Assignment2
         }
         
         /// <summary>
-        /// Updates the Prism
+        /// Updates the Prism by handling the input
         /// </summary>
         /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();
 
-           if (ks.IsKeyDown(Keys.Up))
-           {
-               _direction += 0.05f * _effect.World.Forward;
-           }
-           else if (ks.IsKeyDown(Keys.Down))
-           {
-               _direction += 0.05f * _effect.World.Backward;
-           }
-           else if (ks.IsKeyDown(Keys.Left))
-           {
-               _rotation += 0.05f;
-           }
-           else if (ks.IsKeyDown(Keys.Right))
-           {
-               _rotation -= 0.05f;
-           }
-           
-           _effect.World = Matrix.CreateFromYawPitchRoll(_rotation, 0.0f, 0.0f) * Matrix.CreateTranslation(_direction);
+            _oldPosition = _position;
+          
+            if (ks.IsKeyDown(Keys.Left))
+            {
+                _rotation += 0.05f;
+            }
+            if (ks.IsKeyDown(Keys.Right))
+            {
+                _rotation -= 0.05f;
+            }
+            
+            //computes direction
+            _direction = Vector3.Transform(Vector3.Forward, Matrix.CreateRotationY(_rotation));
+            
+            if (ks.IsKeyDown(Keys.Up))
+            {
+                _position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            if (ks.IsKeyDown(Keys.Down))
+            {
+                _position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            
+            //since the plane is a 1x1 then the bounds are set to not pass 1f
+            if (!(_position.X < 1f - _radius && _position.X > -1f + _radius && _position.Z < 1f - _radius && _position.Z > -1f + _radius))
+            {
+                _position = _oldPosition;
+            }
+            _effect.World = Matrix.CreateFromYawPitchRoll(_rotation, 0.0f, 0.0f) * Matrix.CreateTranslation(_position);
         }
         
         /// <summary>
